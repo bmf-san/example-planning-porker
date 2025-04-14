@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planning Poker</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Planning Poker</h1>
+    </header>
+
+    <!-- ルーム参加画面 -->
+    <div id="join-screen">
+      <div class="form-group">
+        <label for="room-id">ルームID</label>
+        <input type="text" id="room-id" placeholder="ルームIDを入力">
+      </div>
+      <div class="form-group">
+        <label for="user-name">ユーザー名</label>
+        <input type="text" id="user-name" placeholder="あなたの名前を入力">
+      </div>
+      <button id="join-button">参加する</button>
+    </div>
+
+    <!-- 投票画面 (初期状態では非表示) -->
+    <div id="room-screen" style="display: none;">
+      <div class="room-info">
+        <h2>ルーム: <span id="room-id-display"></span></h2>
+        <h3>あなた: <span id="user-name-display"></span></h3>
+      </div>
+
+      <div class="participants">
+        <h3>参加者</h3>
+        <ul id="participants-list"></ul>
+      </div>
+
+      <div class="voting-area">
+        <h3>投票</h3>
+        <div class="cards">
+          <button class="card" data-value="1">1</button>
+          <button class="card" data-value="2">2</button>
+          <button class="card" data-value="3">3</button>
+          <button class="card" data-value="5">5</button>
+          <button class="card" data-value="8">8</button>
+          <button class="card" data-value="13">13</button>
+          <button class="card" data-value="21">21</button>
+        </div>
+        <div class="selected-card">
+          <p>あなたの選択: <span id="selected-value">未選択</span></p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="reveal-button">結果公開</button>
+        <button id="reset-button">リセット</button>
+      </div>
+
+      <div class="results">
+        <h3>結果</h3>
+        <div id="results-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/client.js"></script>
+</body>
+</html>
