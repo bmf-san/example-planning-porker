@@ -96,6 +96,16 @@ button:hover {
   border-radius: 4px;
 }
 
+.share-button {
+  background-color: #2ecc71;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.share-button:hover {
+  background-color: #27ae60;
+}
+
 .participants {
   margin-bottom: 20px;
 }
@@ -165,11 +175,11 @@ button:hover {
 }
 
 #reset-button {
-  background-color: #7f8c8d;
+  background-color: #f39c12;
 }
 
 #reset-button:hover {
-  background-color: #636e72;
+  background-color: #e67e22;
 }
 
 /* 結果表示 */
@@ -226,5 +236,415 @@ button:hover {
   .result-card {
     width: 70px;
     height: 100px;
+  }
+}
+
+/* レスポンシブ対応の拡張 */
+@media (max-width: 600px) {
+  .topic-input-group {
+    flex-direction: column;
+  }
+
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .history-time {
+    margin-top: 5px;
+  }
+
+  .history-votes-table {
+    font-size: 14px;
+  }
+
+  .history-votes-table th,
+  .history-votes-table td {
+    padding: 6px 8px;
+  }
+}
+
+/* ホスト関連のスタイル */
+.host-user {
+  position: relative;
+  font-weight: bold;
+  color: #e67e22;
+  padding-left: 20px;
+}
+
+.host-user::before {
+  content: "👑";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.host-card {
+  border-color: #e67e22;
+  box-shadow: 0 3px 10px rgba(230, 126, 34, 0.3);
+  background-color: #fffdf5;
+}
+
+.host-card .name {
+  color: #e67e22;
+}
+
+/* トピック関連 */
+.topic-area {
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 4px solid #e67e22;
+}
+
+.topic-input-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.topic-input-group input {
+  flex: 1;
+}
+
+.topic-input-group button {
+  background-color: #e67e22;
+}
+
+.topic-input-group button:hover {
+  background-color: #d35400;
+}
+
+.current-topic {
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.current-topic p {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+/* 履歴セクション */
+.history-section {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.empty-history {
+  color: #7f8c8d;
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.history-entry {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.history-header h4 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.history-time {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+/* 履歴テーブル */
+.history-votes-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.history-votes-table th {
+  background-color: #f2f2f2;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: bold;
+  color: #2c3e50;
+  border-bottom: 1px solid #ddd;
+}
+
+.history-votes-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.history-votes-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.history-user-name {
+  font-weight: bold;
+}
+
+.history-vote-value {
+  text-align: center;
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* 参加者テーブル */
+.participants-table-container {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.participants-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.participants-table th {
+  background-color: #f2f2f2;
+  padding: 10px 15px;
+  font-weight: bold;
+  color: #2c3e50;
+  border-bottom: 1px solid #ddd;
+}
+
+.participants-table td {
+  padding: 8px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.participants-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.participant-name {
+  font-weight: bold;
+}
+
+.participant-status {
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-not-voted {
+  color: #7f8c8d;
+}
+
+.status-voted {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.status-revealed {
+  color: #2ecc71;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* ホスト関連のスタイル（更新） */
+tr.host-user {
+  background-color: #fff9ed;
+}
+
+tr.host-user::before {
+  content: none;
+}
+
+tr.host-user .participant-name {
+  position: relative;
+  padding-left: 25px;
+  color: #e67e22;
+}
+
+tr.host-user .participant-name::before {
+  content: "👑";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+tr.host-user:hover {
+  background-color: #fff5e0 !important;
+}
+
+/* 無効化されたボタン */
+button:disabled {
+  background-color: #bdc3c7;
+  color: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+button:disabled:hover {
+  background-color: #bdc3c7;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ヘルプボタン */
+.help-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.help-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.1);
+}
+
+/* モーダル */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 50px auto;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+.close-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-modal:hover {
+  color: #555;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.guide-section {
+  margin-bottom: 25px;
+}
+
+.guide-section h3 {
+  color: #3498db;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.guide-section p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.guide-section ul,
+.guide-section ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.guide-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .help-button {
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+
+  .guide-section h3 {
+    font-size: 16px;
   }
 }

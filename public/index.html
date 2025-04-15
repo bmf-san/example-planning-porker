@@ -10,6 +10,7 @@
   <div class="container">
     <header>
       <h1>Planning Poker</h1>
+      <button id="help-button" class="help-button" aria-label="ヘルプを表示">?</button>
     </header>
 
     <!-- ルーム参加画面 -->
@@ -30,11 +31,37 @@
       <div class="room-info">
         <h2>ルーム: <span id="room-id-display"></span></h2>
         <h3>あなた: <span id="user-name-display"></span></h3>
+        <button id="share-button" class="share-button">招待リンクをコピー</button>
       </div>
 
       <div class="participants">
         <h3>参加者</h3>
-        <ul id="participants-list"></ul>
+        <div class="participants-table-container">
+          <table id="participants-table" class="participants-table">
+            <thead>
+              <tr>
+                <th>名前</th>
+                <th>状態</th>
+              </tr>
+            </thead>
+            <tbody id="participants-list"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- トピック設定エリア (ホストのみ表示) -->
+      <div id="topic-area" class="topic-area" style="display: none;">
+        <h3>投票トピック</h3>
+        <div class="topic-input-group">
+          <input type="text" id="topic-input" placeholder="この投票の内容を入力（例：ログイン機能の実装）">
+          <button id="set-topic-button">設定</button>
+        </div>
+      </div>
+
+      <!-- 現在のトピック表示 -->
+      <div class="current-topic">
+        <h3>現在のトピック</h3>
+        <p id="current-topic-display">（未設定）</p>
       </div>
 
       <div class="voting-area">
@@ -55,12 +82,62 @@
 
       <div class="actions">
         <button id="reveal-button">結果公開</button>
-        <button id="reset-button">リセット</button>
+        <button id="reset-button">投票終了</button>
       </div>
 
       <div class="results">
         <h3>結果</h3>
         <div id="results-container"></div>
+      </div>
+
+      <!-- 履歴セクション -->
+      <div class="history-section">
+        <h3>投票履歴</h3>
+        <div id="history-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ユーザーガイドモーダル -->
+  <div id="guide-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Planning Pokerの使い方</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <section class="guide-section">
+          <h3>はじめに</h3>
+          <p>Planning Pokerはチームでタスクの見積もりを行うためのツールです。全員が独立して見積もりを行い、一度に結果を公開することで、先入観のない見積もりを実現します。</p>
+        </section>
+
+        <section class="guide-section">
+          <h3>基本的な使い方</h3>
+          <ol>
+            <li><strong>ルームの作成・参加</strong>: ルームIDとユーザー名を入力して参加します。最初に参加したユーザーが自動的にホストになります。</li>
+            <li><strong>招待リンク</strong>: ホストは「招待リンクをコピー」ボタンをクリックして、他のメンバーに共有できます。</li>
+            <li><strong>投票トピックの設定</strong>: ホストは見積もり対象となるタスク名を入力できます。</li>
+            <li><strong>投票</strong>: 各自でカードを選択して投票します。一度投票した後でも、同じカードを再度クリックすると投票を取り下げることができます。</li>
+            <li><strong>結果公開</strong>: ホストが「結果公開」ボタンをクリックすると全員の投票結果が表示されます。</li>
+            <li><strong>投票終了</strong>: ホストが「投票終了」ボタンをクリックすると、結果が履歴に保存され、新しい投票を始められます。</li>
+          </ol>
+        </section>
+
+        <section class="guide-section">
+          <h3>ホストの役割</h3>
+          <p>ホストは以下の特別な権限を持ちます：</p>
+          <ul>
+            <li>投票トピックの設定</li>
+            <li>結果の公開</li>
+            <li>投票の終了と新しい投票の開始</li>
+          </ul>
+          <p>ホストが退出すると、自動的に別のメンバーがホストになります。</p>
+        </section>
+
+        <section class="guide-section">
+          <h3>投票履歴</h3>
+          <p>過去の投票結果は画面下部の「投票履歴」セクションに保存されます。トピック名、日時、各メンバーの投票内容を確認できます。</p>
+        </section>
       </div>
     </div>
   </div>

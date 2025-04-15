@@ -53,30 +53,6 @@ npm start
 3. 全員が投票したら「結果公開」ボタンをクリック
 4. 次のストーリーに移る場合は「リセット」ボタンをクリック
 
-## デプロイ
-
-### Google Cloud Runへのデプロイ
-
-1. Google Cloud SDKをインストール
-2. Dockerイメージをビルド
-
-```bash
-docker build -t planning-poker .
-```
-
-3. Google Container Registryにプッシュ
-
-```bash
-docker tag planning-poker gcr.io/your-project/planning-poker
-docker push gcr.io/your-project/planning-poker
-```
-
-4. Cloud Runにデプロイ
-
-```bash
-gcloud run deploy planning-poker --image gcr.io/your-project/planning-poker
-```
-
 ## ライセンス
 
-MIT
+[MIT LICENSE](LICENSE)
